@@ -1,0 +1,63 @@
+
+name: Extract MOHAVEX DIGITAL
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract MOHAVEX ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          ZIP="MOHAVEX_DIGITAL_Phase1.zip"
+          EXTRACT="/tmp/mohavex/extracted"
+
+          if [ ! -f "$ZIP" ]; then
+            echo "ERREUR : archive introuvable."
+            exit 1
+          fi
+
+          mkdir -p "$EXTRACT"
+          unzip -q "$ZIP" -d "$EXTRACT"
+
+          INDEX="$(find "$EXTRACT" -type f -name index.html -print -quit)"
+
+          if [ -z "$INDEX" ]; then
+            echo "ERREUR : index.html introuvable."
+            exit 1
+          fi
+
+          APP_ROOT="$(dirname "$INDEX")"
+
+          cp -a "$APP_ROOT"/. .
+
+          echo "MOHAVEX DIGITAL extrait avec succès."
+
+      - name: Commit extracted application
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+
+          if ! git diff --cached --quiet; then
+            git commit -m "Install MOHAVEX DIGITAL application"
+            git push
+          else
+            echo "Aucun changement."
+          fi
+          
