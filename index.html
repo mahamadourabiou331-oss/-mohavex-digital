@@ -1,72 +1,77 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" id="htmlRoot">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#101827">
-  <meta name="description" content="MOHAVEX.DIGITAL — The Future of Digital Business">
-  <title>MOHAVEX.DIGITAL</title>
-  <link rel="stylesheet" href="/assets/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MOHAVEX.DIGITAL : formation, services numériques, commerce et affiliation transparente.">
+  <title>MOHAVEX.DIGITAL — L’avenir des affaires numériques</title>
+  <style>
+    :root{--bg-primary:#0b0f19;--bg-secondary:#151b2b;--accent-blue:#0757f9;--text-main:#fff;--text-muted:#a2aec2;--border-color:#222c40}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+    body{background:var(--bg-primary);color:var(--text-main);min-height:100vh;padding:15px}
+    main{max-width:900px;margin:0 auto}
+    header{background:var(--bg-secondary);border:1px solid var(--border-color);padding:18px;border-radius:14px;display:flex;justify-content:space-between;align-items:center;gap:12px;margin:12px 0 22px}
+    .logo{font-size:clamp(18px,4vw,27px);font-weight:700;letter-spacing:-.5px}.logo span{color:var(--accent-blue)}
+    select{background:var(--bg-primary);color:var(--text-main);border:1px solid #d7deeb;padding:12px;border-radius:9px;font-size:15px;max-width:145px}
+    .hero,.card{background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:16px;margin-bottom:20px}
+    .hero{text-align:center;padding:clamp(26px,6vw,58px) 20px}
+    .hero h1{font-size:clamp(25px,5vw,40px);line-height:1.25;color:var(--accent-blue);margin-bottom:14px}
+    .hero p{color:var(--text-muted);font-size:clamp(15px,3vw,19px);line-height:1.55;margin:0 auto 24px;max-width:680px}
+    .grid{display:grid;grid-template-columns:1fr;gap:16px}
+    .card{padding:20px}.card h2{color:var(--accent-blue);font-size:21px;margin-bottom:10px}.card p{color:var(--text-muted);font-size:16px;line-height:1.5;margin-bottom:18px}
+    .btn{display:block;background:var(--accent-blue);color:#fff;border:0;padding:15px 18px;border-radius:10px;font-weight:700;font-size:16px;width:100%;cursor:pointer}
+    .btn:hover{filter:brightness(1.12)}
+    footer{color:var(--text-muted);text-align:center;font-size:13px;padding:20px 8px}
+    @media(min-width:680px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.card:last-child{grid-column:1/-1}}
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#"><span class="brand-mark">M</span><span>MOHAVEX<span class="gold">.DIGITAL</span><small>The Future of Digital Business</small></span></a>
-    <div class="top-actions">
-      <label class="sr-only" for="language">Langue</label>
-      <select id="language" aria-label="Choisir la langue">
-        <option value="fr">Français</option><option value="en">English</option>
-        <option value="ha">Hausa</option><option value="ar">العربية</option>
-      </select>
-      <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">☰</button>
-    </div>
+<main>
+  <header>
+    <div class="logo">MOHAVEX<span>.DIGITAL</span></div>
+    <select id="langSelect" aria-label="Choisir la langue" onchange="changeLanguage(this.value)">
+      <option value="fr" selected>Français</option>
+      <option value="ha">Hausa</option>
+      <option value="en">English</option>
+      <option value="ar">العربية</option>
+    </select>
   </header>
 
-  <div class="layout">
-    <aside class="sidebar" id="sidebar">
-      <div class="side-label" data-i18n="workspace">ESPACE DE TRAVAIL</div>
-      <nav>
-        <a class="nav-link active" href="#home">⌂ <span data-i18n="home">Accueil</span></a>
-        <a class="nav-link" href="#activities">▦ <span data-i18n="activities">Activités</span></a>
-        <a class="nav-link" href="#academy">▤ <span data-i18n="academy">Académie</span></a>
-        <a class="nav-link" href="#affiliate">♧ <span data-i18n="affiliate">Affiliation</span></a>
-        <a class="nav-link" href="#wallet">◈ <span data-i18n="wallet">Portefeuille</span></a>
-        <a class="nav-link" href="#market">◇ <span data-i18n="market">Marketplace</span></a>
-        <a class="nav-link" href="#support">？ <span data-i18n="support">Assistance</span></a>
-      </nav>
-      <div class="sidebar-note"><span class="status-dot"></span><span data-i18n="prototype">Version de démarrage</span></div>
-    </aside>
+  <section class="hero">
+    <h1 id="heroTitle">L’avenir des affaires numériques</h1>
+    <p id="heroSubtitle">Une plateforme dédiée à l’apprentissage, aux services numériques, au commerce et à l’affiliation transparente. Fondateur : Mohamed.</p>
+    <button class="btn" id="heroButton" type="button" onclick="showMessage('welcome')">Commencer maintenant</button>
+  </section>
 
-    <main id="home" class="main">
-      <section class="welcome">
-        <div>
-          <p class="eyebrow" data-i18n="welcome">BIENVENUE SUR VOTRE PLATEFORME</p>
-          <h1><span data-i18n="future">Construisons votre</span><br><span class="gold" data-i18n="future2">avenir numérique.</span></h1>
-          <p class="intro" data-i18n="intro">Apprenez, développez vos compétences et découvrez des opportunités numériques réelles.</p>
-          <a class="primary-btn" href="#activities" data-i18n="explore">Découvrir la plateforme <span>→</span></a>
-        </div>
-        <div class="hero-orb" aria-hidden="true"><div class="orb-inner">M<span>.</span></div><div class="orb-caption">DIGITAL AFRICA · INNOVATION</div></div>
-      </section>
-
-      <section class="notice">
-        <strong data-i18n="demoTitle">Mode aperçu</strong>
-        <span data-i18n="demoText">Cette première version présente l'interface. Aucun compte, paiement, bonus ou retrait réel n'est encore activé.</span>
-      </section>
-
-      <section class="section-head">
-        <div><p class="eyebrow" data-i18n="overview">VOTRE ESPACE</p><h2 data-i18n="quickAccess">Accès rapide</h2></div>
-        <span class="version">PHASE 01 · UI</span>
-      </section>
-      <section class="cards">
-        <article class="feature-card" id="activities"><div class="card-icon">▦</div><h3 data-i18n="activities">Activités</h3><p data-i18n="activitiesText">Retrouvez les activités et missions qui seront publiées sur la plateforme.</p><span class="coming" data-i18n="coming">À construire</span></article>
-        <article class="feature-card" id="academy"><div class="card-icon">▤</div><h3 data-i18n="academy">Académie</h3><p data-i18n="academyText">Des parcours pour apprendre le marketing digital, l'IA et le commerce en ligne.</p><span class="coming" data-i18n="coming">À construire</span></article>
-        <article class="feature-card" id="affiliate"><div class="card-icon">♧</div><h3 data-i18n="affiliate">Affiliation</h3><p data-i18n="affiliateText">Un espace de suivi des recommandations et des commissions issues de ventes éligibles.</p><span class="coming" data-i18n="coming">À construire</span></article>
-        <article class="feature-card" id="wallet"><div class="card-icon">◈</div><h3 data-i18n="wallet">Portefeuille</h3><p data-i18n="walletText">Historique des opérations et suivi des paiements après intégration sécurisée.</p><span class="coming" data-i18n="coming">À construire</span></article>
-        <article class="feature-card" id="market"><div class="card-icon">◇</div><h3 data-i18n="market">Marketplace</h3><p data-i18n="marketText">Catalogue de produits numériques et de services avec conditions transparentes.</p><span class="coming" data-i18n="coming">À construire</span></article>
-        <article class="feature-card" id="support"><div class="card-icon">？</div><h3 data-i18n="support">Assistance</h3><p data-i18n="supportText">Centre d'aide, questions fréquentes et contact avec l'équipe.</p><span class="coming" data-i18n="coming">À construire</span></article>
-      </section>
-      <footer><span>© <span id="year"></span> MOHAVEX.DIGITAL</span><span data-i18n="footer">Conçu avec transparence · The Future of Digital Business</span></footer>
-    </main>
-  </div>
-  <script src="/assets/app.js"></script>
+  <section class="grid" aria-label="Services MOHAVEX">
+    <article class="card">
+      <h2 id="feat1Title">MOHAVEX — Missions</h2>
+      <p id="feat1Desc">Découvrez des activités et des missions clairement expliquées. Toute rémunération éventuelle dépend de tâches réelles et vérifiées.</p>
+      <button class="btn" id="feat1Button" type="button" onclick="showMessage('tasks')">Voir les missions</button>
+    </article>
+    <article class="card">
+      <h2 id="feat2Title">MOHAVEX — Marché</h2>
+      <p id="feat2Desc">Découvrez des produits et des services. Les conditions et les liens commerciaux doivent être clairement indiqués.</p>
+      <button class="btn" id="feat2Button" type="button" onclick="showMessage('market')">Découvrir le marché</button>
+    </article>
+    <article class="card">
+      <h2 id="feat3Title">MOHAVEX — Portefeuille</h2>
+      <p id="feat3Desc">Consultez les informations de votre portefeuille et l’historique des opérations confirmées. Aucun solde fictif n’est affiché.</p>
+      <button class="btn" id="feat3Button" type="button" onclick="showMessage('wallet')">Consulter le portefeuille</button>
+    </article>
+  </section>
+  <footer id="footerText">MOHAVEX.DIGITAL — Les conditions, frais et règles de chaque service doivent être affichés clairement.</footer>
+</main>
+<script>
+const translations={
+ fr:{heroTitle:"L’avenir des affaires numériques",heroSubtitle:"Une plateforme dédiée à l’apprentissage, aux services numériques, au commerce et à l’affiliation transparente. Fondateur : Mohamed.",heroButton:"Commencer maintenant",feat1Title:"MOHAVEX — Missions",feat1Desc:"Découvrez des activités et des missions clairement expliquées. Toute rémunération éventuelle dépend de tâches réelles et vérifiées.",feat1Button:"Voir les missions",feat2Title:"MOHAVEX — Marché",feat2Desc:"Découvrez des produits et des services. Les conditions et les liens commerciaux doivent être clairement indiqués.",feat2Button:"Découvrir le marché",feat3Title:"MOHAVEX — Portefeuille",feat3Desc:"Consultez les informations de votre portefeuille et l’historique des opérations confirmées. Aucun solde fictif n’est affiché.",feat3Button:"Consulter le portefeuille",footerText:"MOHAVEX.DIGITAL — Les conditions, frais et règles de chaque service doivent être affichés clairement.",welcome:"Bienvenue sur MOHAVEX.DIGITAL !",tasks:"La section des missions sera disponible après sa mise en place.",market:"La section du marché sera disponible après sa mise en place.",wallet:"Le portefeuille sera disponible après la mise en place d’un système sécurisé."},
+ ha:{heroTitle:"Makomar Kasuwancin Dijital",heroSubtitle:"Dandali don koyon fasahohin dijital, ayyuka, kasuwanci da haɗin gwiwa cikin gaskiya. Wanda ya kafa: Mohamed.",heroButton:"Fara yanzu",feat1Title:"MOHAVEX — Ayyuka",feat1Desc:"Duba ayyuka da bayanansu a sarari. Duk wani lada zai dogara ne da ainihin aikin da aka tabbatar.",feat1Button:"Duba ayyuka",feat2Title:"MOHAVEX — Kasuwa",feat2Desc:"Bincika kayayyaki da ayyuka tare da bayyana sharudda da hanyoyin kasuwanci a sarari.",feat2Button:"Shiga kasuwa",feat3Title:"MOHAVEX — Jaka",feat3Desc:"Duba bayanan jakarka da tarihin mu’amaloli da aka tabbatar. Ba a nuna kuɗin bogi.",feat3Button:"Duba jaka",footerText:"MOHAVEX.DIGITAL — Dole ne a bayyana sharudda, kuɗaɗe da dokokin kowane sabis a sarari.",welcome:"Barka da zuwa MOHAVEX.DIGITAL!",tasks:"Za a buɗe sashen ayyuka bayan an kammala shirya shi.",market:"Za a buɗe sashen kasuwa bayan an kammala shirya shi.",wallet:"Za a buɗe jaka bayan an kafa tsarin tsaro."},
+ en:{heroTitle:"The Future of Digital Business",heroSubtitle:"A platform for learning, digital services, commerce and transparent affiliation. Founder: Mohamed.",heroButton:"Get started",feat1Title:"MOHAVEX — Tasks",feat1Desc:"Explore clearly explained activities and tasks. Any rewards depend on real, verified work.",feat1Button:"View tasks",feat2Title:"MOHAVEX — Market",feat2Desc:"Explore products and services with clear terms and commercial links.",feat2Button:"Explore market",feat3Title:"MOHAVEX — Wallet",feat3Desc:"View wallet information and confirmed transaction history. No fictitious balances are displayed.",feat3Button:"View wallet",footerText:"MOHAVEX.DIGITAL — Terms, fees and rules for each service must be clearly displayed.",welcome:"Welcome to MOHAVEX.DIGITAL!",tasks:"The tasks section will be available once it has been set up.",market:"The marketplace will be available once it has been set up.",wallet:"The wallet will be available after a secure system is implemented."},
+ ar:{heroTitle:"مستقبل الأعمال الرقمية",heroSubtitle:"منصة للتعلم والخدمات الرقمية والتجارة والتسويق بالعمولة بشفافية. المؤسس: محمد.",heroButton:"ابدأ الآن",feat1Title:"موهافكس — المهام",feat1Desc:"اكتشف الأنشطة والمهام الموضحة بوضوح. أي مكافآت تعتمد على عمل حقيقي تم التحقق منه.",feat1Button:"عرض المهام",feat2Title:"موهافكس — السوق",feat2Desc:"اكتشف المنتجات والخدمات مع توضيح الشروط والروابط التجارية.",feat2Button:"اكتشف السوق",feat3Title:"موهافكس — المحفظة",feat3Desc:"اطلع على معلومات المحفظة وسجل المعاملات المؤكدة. لا نعرض أرصدة وهمية.",feat3Button:"عرض المحفظة",footerText:"MOHAVEX.DIGITAL — يجب توضيح الشروط والرسوم والقواعد لكل خدمة.",welcome:"مرحباً بك في MOHAVEX.DIGITAL!",tasks:"سيتم توفير قسم المهام بعد إعداده.",market:"سيتم توفير السوق بعد إعداده.",wallet:"ستتوفر المحفظة بعد تنفيذ نظام آمن."}
+};
+function changeLanguage(lang){const t=translations[lang]||translations.fr;document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';document.getElementById('heroTitle').textContent=t.heroTitle;document.getElementById('heroSubtitle').textContent=t.heroSubtitle;document.getElementById('heroButton').textContent=t.heroButton;['feat1Title','feat1Desc','feat1Button','feat2Title','feat2Desc','feat2Button','feat3Title','feat3Desc','feat3Button','footerText'].forEach(id=>document.getElementById(id).textContent=t[id]);document.title='MOHAVEX.DIGITAL — '+t.heroTitle;}
+function showMessage(key){const lang=document.getElementById('langSelect').value;alert(translations[lang][key]);}
+changeLanguage('fr');
+</script>
 </body>
 </html>
